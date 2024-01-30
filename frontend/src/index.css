@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'NHaasGrotesKDSPro-65Md' !important;
+
+  
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+#carousel{max-height: 500px;}
+#footer{
+  padding: 20%;
+  margin: auto;
+  text-align: center;
+
+display: flex;
+font-size: 36px;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+justify-content: center;
+align-items: center;
+
+
+}
+
+.card {
+ 
+  width: 17rem;
+  max-height: 460px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+ 
+  transform: scale(1.05); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+}
+#profile-btn:hover{
+
+   
+  transform: scale(1.05); 
+  box-shadow: 0 0 10px rgba(0, 8, 226, 0.3); 
+}
+
