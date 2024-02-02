@@ -10,5 +10,14 @@ router.post("/fooddata",(req,res)=>{
         res.send("server error");
     }
 });
+router.get("/check",(req,res)=>{
+
+    try {
+        res.send("server working properly");
+    } catch (error) {
+        console.error(error.message);
+        res.send("server error");
+    }
+});
 
 module.exports=router;
