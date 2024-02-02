@@ -23,7 +23,7 @@ export default function Card(props) {
                 break;
             }
         }
-        if (food != []) {
+        if (food) {
             if (food.size === size) {
                 await dispatch({ type: "UPDATE", id: props.foodItem._id, price: finalPrice, qty: qty })
                 return;
@@ -43,7 +43,7 @@ export default function Card(props) {
     const finalPrice = qty * parseInt(options[size]);
     useEffect(() => {
         setSize(priceRef.current.value)
-    })
+    },[])
     // let foodItem=props.foodItem;
     return (
         <div><div className="card mt-3 rounded " style={{ "width": "17rem", "maxHeight": "460px" }}>
