@@ -7,7 +7,7 @@ export default function Login() {
   const [credentials,setCredentials]=useState({email:"",password:""});
   const handleSubmit=async(e)=>{
 e.preventDefault();//synthetic event
-const response=await fetch("http://localhost:5000/api/loginuser",
+const response=await fetch("https://swigato-backend-xe1m.onrender.com/api/loginuser",
 {
   method:'POST',
   headers:{"Content-Type":"application/json"},

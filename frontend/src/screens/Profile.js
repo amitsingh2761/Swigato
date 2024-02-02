@@ -10,7 +10,7 @@ export default function Profile() {
     const [userData, setUserData] = useState("");
     const fetchMyOrder = async () => {
         try {
-            const response = await fetch("http://localhost:5000/api/profile", {
+            const response = await fetch("https://swigato-backend-xe1m.onrender.com/api/profile", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

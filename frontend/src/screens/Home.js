@@ -14,7 +14,7 @@ export default function Home() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/fooddata", {
+      const response = await fetch("https://swigato-backend-xe1m.onrender.com/api/fooddata", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' }
       });
