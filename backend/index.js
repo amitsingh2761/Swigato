@@ -8,7 +8,8 @@ startMongoDB();
 const app = express();
 const port = 5000;
 
-app.use(express.static(__dirname + '/public'));
+app.use(cors()); // Allow all origins for testing purposes
+
 
 // Enable CORS for all routes
 app.use(cors({
