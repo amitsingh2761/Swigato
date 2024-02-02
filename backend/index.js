@@ -8,12 +8,12 @@ const port = 5000;
 
 
 app.use('/',(req,res,next)=>{
-  res.setHeader("Access-Control-Allow-Origin",process.env.BASE_URL);
+  res.setHeader("Access-Control-Allow-Origin",process.env.ONLINE_URL);
   res.header("Access-Control-Allow-Headers","Origin,X-Requested-With,Content-Type,Accept");
   next();
 });
 app.options('*', (req, res) => {
-  res.header('Access-Control-Allow-Origin', process.env.BASE_URL);
+  res.header('Access-Control-Allow-Origin', process.env.ONLINE_URL);
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.send();
