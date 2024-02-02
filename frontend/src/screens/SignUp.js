@@ -1,41 +1,54 @@
-import React, { useEffect, useState } from 'react'
-import { Link,useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
+
 export default function SignUp() {
-  const navigate=useNavigate();
-    const [credentials,setCredentials]=useState({name:"",email:"",password:"",geolocation:""});
-    const handleSubmit=async(e)=>{
-e.preventDefault();//synthetic event
-const response=await fetch("http://localhost:5000/api/createuser",
-{
-    method:'POST',
-    headers:{"Content-Type":"application/json"},
-body:JSON.stringify({name:credentials.name,email:credentials.email,password:credentials.password,location:credentials.geolocation})
+  const navigate = useNavigate();
+  const [credentials, setCredentials] = useState({ name: "", email: "", password: "", geolocation: "" });
 
-});
-const json=await response.json();
-console.log(json);
-if(!json.success)
-{alert("enter valid credentials!!");}
-else
-{navigate("/");}
-}
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://localhost:5000/api/createuser", {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: credentials.name,
+        email: credentials.email,
+        password: credentials.password,
+        location: credentials.geolocation
+      })
+    });
 
+    const json = await response.json();
+    console.log(json);
 
-    const setChange=(event)=>{
-      setCredentials({...credentials,[event.target.name]:event.target.value})
-  }
+    if (!json.success) {
+      alert("Enter valid credentials!!");
+    } else {
+      navigate("/");
+    }
+  };
 
-const getLocation=async()=>{
-  const location=await axios.get("https://ipapi.co/json");
-  setCredentials({...credentials,geolocation:location.data.city+" "+location.data.region});
-// console.log(location.data.city)
-}
+  const setChange = (event) => {
+    setCredentials({ ...credentials, [event.target.name]: event.target.value });
+  };
 
+  const getLocation = async () => {
+    try {
+      const location = await axios.get("https://ipapi.co/json");
+      setCredentials((prevCredentials) => ({
+        ...prevCredentials,
+        geolocation: location.data.city + " " + location.data.region
+      }));
+      // console.log(location.data.city);
+    } catch (error) {
+      console.error("Error fetching location:", error);
+    }
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     getLocation();
-  },[]);
+  }, []);
   return (
    <>
    <div className='container mt-3'>

@@ -52,7 +52,7 @@ const handleProfile=()=>{
           <Link className="btn bg-white  text-success mx-1" to="/createuser">SignUp</Link>
         </div>: <div>
         <div className="btn bg-white  text-success mx-1" onClick={()=>{setCartView(true)}}>MyCart {" "}
-        <Badge pill bg='danger'>{data.length!=0?data.length:null}</Badge>
+        <Badge pill bg='danger'>{data.length!==0?data.length:null}</Badge>
         </div>
 {cartView? <Modal onClose={()=>{setCartView(false)}}><Cart /></Modal>:null}
          <div className="btn bg-danger  text-white mx-1" onClick={handleLogout}>LogOut</div>
