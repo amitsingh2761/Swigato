@@ -18,7 +18,7 @@ export default function ProfileCard({ userData, orderData }) {
         </ul>
         <div className="card-body">
           <a href="/" className="card-link">HomePage</a>
-          <Link className="nav-link active fs-5" aria-current="page" to="/myOrderData">My Orders</Link>
+          <Link className="card-link" aria-current="page" to="/myOrderData">My Orders</Link>
         </div>
       </div>
     </div>
