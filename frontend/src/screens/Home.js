@@ -16,7 +16,7 @@ export default function Home() {
     try {
       const response = await fetch("https://swigato-backend-xe1m.onrender.com/api/fooddata", {
         method: "POST",
-        mode:'no-cors',
+        mode:'cors',
         headers: { 'Content-Type': 'application/json' }
       });
       const respData = await response.json();
