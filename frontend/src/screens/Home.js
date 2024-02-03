@@ -28,7 +28,7 @@ export default function Home() {
 
 
     } catch (error) {
-      console.error("Error fetching data:", error.message);
+      console.error("Error fetching data:", error);
     }
   };
 
