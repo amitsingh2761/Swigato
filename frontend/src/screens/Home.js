@@ -10,13 +10,14 @@ export default function Home() {
 
 
 
+
   const [search, setSearch] = useState('');
 
   const fetchData = async () => {
     try {
       const response = await fetch("https://swigato-backend-xe1m.onrender.com/api/fooddata", {
         method: "POST",
-        mode:'cors',
+        // mode:'cors',
         headers: { 'Content-Type': 'application/json' }
       });
       const respData = await response.json();
@@ -38,9 +39,12 @@ export default function Home() {
 
   useEffect(() => {
 
+
     fetchData();
 
   }, [])
+
+
 
 
   return (

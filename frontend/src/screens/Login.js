@@ -2,9 +2,15 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
 import VisibilityOffRoundedIcon from '@mui/icons-material/VisibilityOffRounded';
+import SnackBar from '../components/SnackBar';
+
+
 export default function Login() {
   const navigate=useNavigate();
   const [credentials,setCredentials]=useState({email:"",password:""});
+  const [isValid,setValid]=useState(false);//for credentails
+  const [isRight,setRight]=useState(false);//for giving alright flag
+
   const handleSubmit=async(e)=>{
 e.preventDefault();//synthetic event
 const response=await fetch("https://swigato-backend-xe1m.onrender.com/api/loginuser",
@@ -17,12 +23,19 @@ body:JSON.stringify({email:credentials.email,password:credentials.password})
 const json=await response.json();
 console.log(json);
 if(!json.success)
-{alert("enter valid credentials!!");}
+{
+
+setValid(true);
+}
 else{
   localStorage.setItem("userEmail",credentials.email);
   localStorage.setItem("authToken",json.authToken);
-  console.log(localStorage.getItem("authToken"));
-  navigate("/");
+
+  // console.log(localStorage.getItem("authToken"));
+
+  setRight(true);
+      setTimeout(()=>{navigate('/')},4000)
+  
 }
   }
 
@@ -45,8 +58,11 @@ document.getElementById('passw').type="text";
 }
   return (
    <>
-   
+
    <div className='container mt-3'>
+  
+    {<SnackBar openCred={isValid} msg='enter Valid Credentails' color="error"/>}
+    {<SnackBar openCred={isRight} msg='Login SuccessFull !!! Redirecting to HomePage...' color="success"/>}
    <form onSubmit={handleSubmit}>
   
   <div className="mb-3">
@@ -66,6 +82,7 @@ document.getElementById('passw').type="text";
   
   <button type="submit" className="btn btn-success m-3">Submit</button>
   <Link to="/createuser" className='btn btn-primary m-3'>Create Account </Link>
+  <Link to="/" className='btn btn-primary m-3'>HomePage </Link>
 </form>
 </div>
    

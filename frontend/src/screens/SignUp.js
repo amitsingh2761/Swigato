@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SnackBar from '../components/SnackBar';
 import axios from "axios";
 
 export default function SignUp() {
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ name: "", email: "", password: "", geolocation: "" });
+  const [isValid,setValid]=useState(false);//for credentails
+  const [isRight,setRight]=useState(false);//for giving alright flag
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,9 +26,11 @@ export default function SignUp() {
     console.log(json);
 
     if (!json.success) {
-      alert("Enter valid credentials!!");
+      setValid(true);
     } else {
-      navigate("/");
+      setRight(true);
+      setTimeout(()=>{navigate('/')},4000)
+      // navigate("/");
     }
   };
 
@@ -51,6 +56,9 @@ export default function SignUp() {
   }, []);
   return (
    <>
+    {<SnackBar openCred={isValid} msg='enter Valid Credentails' color="warning"/>}
+    {<SnackBar openCred={isRight} msg='SignUp Successful!! Navigating to HomePage...' color="success"/>}
+
    <div className='container mt-3'>
    <form onSubmit={handleSubmit}>
   <div className="mb-3">
@@ -70,6 +78,8 @@ export default function SignUp() {
   
   <button type="submit" className="btn btn-success m-3">Submit</button>
   <Link to="/login" className='btn btn-primary m-3'>Already a User </Link>
+  <Link to="/" className='btn btn-primary m-3'>HomePage </Link>
+
 </form>
 </div>
    </>

@@ -7,44 +7,298 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'NHaasGrotesKDSPro-65Md' !important;
 
-  
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-#carousel{max-height: 500px;}
-#footer{
+
+#carousel {
+  max-height: 500px;
+}
+
+#footer {
   padding: 20%;
   margin: auto;
   text-align: center;
 
-display: flex;
-font-size: 36px;
-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-justify-content: center;
-align-items: center;
+  display: flex;
+  font-size: 36px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  justify-content: center;
+  align-items: center;
 
 
 }
 
 .card {
- 
+
   width: 17rem;
   max-height: 460px;
   transition: transform 0.3s ease-in-out;
 }
 
 .card:hover {
- 
-  transform: scale(1.05); 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
-}
-#profile-btn:hover{
 
-   
-  transform: scale(1.05); 
-  box-shadow: 0 0 10px rgba(0, 8, 226, 0.3); 
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+#profile-btn:hover {
+
+
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 8, 226, 0.3);
+}
+
+/* Container needed to position the overlay. Adjust the width as needed */
+.contaner {
+  position: relative;
+  width: 100%;
+}
+
+/* Make the image to responsive */
+#floatImg {
+  width: 100%;
+  height: auto;
+}
+
+/* The overlay effect (full height and width) - lays on top of the container and over the image */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+  transition: .3s ease;
+}
+
+/* When you mouse over the container, the overlay text will "zoom" in display */
+.contaner:hover .overlay {
+  transform: scale(1);
+}
+
+/* Some text inside the overlay, which is positioned in the middle vertically and horizontally */
+.hoverdata {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/*add cart button effects */
+#AddCart-btn {
+  padding: 5px 3px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+
+  box-shadow: 0 3px #999;
+}
+
+#AddCart-btn:hover {
+  background-color: #04AA6D
+}
+
+#AddCart-btn:active {
+  background-color: green;
+  box-shadow: 0 3px #666;
+  transform: translateY(3px);
+}
+
+
+/* about.js css */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.about-column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.about-card {
+  width: 380px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+  text-shadow: #313030;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: large;
+}
+
+.about-container {
+  padding: 4px;
+}
+
+.about-container::after,
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.about-title {
+  color: grey;
+}
+
+.about-button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.about-button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .about-column {
+    width: 100%;
+    display: block;
+  }
+}
+
+
+/* glow text effect  */
+
+.glow {
+  font-size: 80px;
+  color: #fff;
+  /* Change text color to white */
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 10px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 10px #00ff00, 0 0 25px #00ff00;
+  }
+
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 10px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00, 0 0 25px #00ff00, 0 0 20px #00ff00;
+  }
+}
+
+
+
+/* profile css */
+
+.profile-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+.profile-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.profile-title {
+  color: grey;
+  font-size: 18px;
+}
+
+.profile-button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  font-size: 18px;
+}
+
+.profile-a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+.profile-button:hover,
+.profile-a:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+/* Styling the tab of my Order Data */
+.order-tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.order-tab .order-button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.order-tab .order-button:hover {
+  background-color: #ddd;
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgb(101, 193, 112);
+
+}
+
+/* Create an active/current tablink class */
+.order-tab .order-button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}

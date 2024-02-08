@@ -6,8 +6,9 @@ import Login from './screens/Login';
 import SignUp from './screens/SignUp.js';
 import MyOrders from './screens/MyOrders.js';
 import Profile from './screens/Profile.js';
-
+import About from './screens/About.js';
 import Cart from './screens/Cart.js';
+
 import { CartProvider } from './components/ContextReducer.jsx';
 import {
   BrowserRouter as Router,
@@ -33,6 +34,7 @@ function App() {
 <Route exact path='/myOrderData' element={<MyOrders/>}/>
 <Route exact path='/cart' element={<Cart/>}/>
 <Route exact path='/profile' element={<Profile/>}/>
+<Route exact path='/about' element={<About/>}/>
       </Routes>
     </div>
   </Router>

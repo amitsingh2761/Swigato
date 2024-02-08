@@ -28,6 +28,7 @@ export default function Profile() {
             }
             if (data.userData) {
                 setUserData(data.userData)
+                
             }
             // console.log(data.userData);
         } catch (error) {
@@ -44,6 +45,7 @@ export default function Profile() {
          
         }
     }, [])
+    
     return (
         <>
             <div><Navbar /></div>
